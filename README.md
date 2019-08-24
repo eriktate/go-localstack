@@ -49,12 +49,12 @@ $ go test ./...
 Feel free to submit issues or PRs as you see fit. I can't promise I'll get to everything immediately, but I'll do my best to keep up with any issues or needs as they come up.
 
 ## TODO
-[x] Support v2 of AWS's go sdk
-[x] Spin up localstack container automagically
-[x] Provide a way to wait initially for the localstack container to spin up.
-[ ] Support v1 of AWS's go sdk.
-[ ] Write integration tests against each AWS service supported by localstack.
-[ ] More thorough unit test coverage.
-[ ] Write up some real world examples.
-[ ] Add repository badges.
-[ ] Detect old containers created by `go-localstack` and expose an option to clean those up.
+- [x] Support v2 of AWS's go sdk
+- [x] Spin up localstack container automagically
+- [x] Provide a way to wait initially for the localstack container to spin up.
+- [ ] Support v1 of AWS's go sdk.
+- [ ] Write integration tests against each AWS service supported by localstack.
+- [ ] More thorough unit test coverage.
+- [ ] Write up some real world examples.
+- [ ] Add repository badges.
+- [ ] Detect old containers created by `go-localstack` and expose an option to clean those up.
