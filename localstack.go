@@ -197,7 +197,7 @@ func (i *Instance) makeResolver() serviceResolver {
 				URL:           fmt.Sprintf("%s:%s", i.host, i.resource.GetPort("4568/tcp")),
 				SigningRegion: "test-siging-region",
 			}, nil
-		case "dynamo":
+		case "dynamodb":
 			return aws.Endpoint{
 				URL:           fmt.Sprintf("%s:%s", i.host, i.resource.GetPort("4569/tcp")),
 				SigningRegion: "test-siging-region",
