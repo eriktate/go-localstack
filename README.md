@@ -31,7 +31,7 @@ func Test_AWS(t *testing.T) {
 	// you can generate an AWS config directly from the localstack Instance
 	s3client := s3.New(instance.Config())
 
-	// do your integration tets with the s3 client down here
+	// do your integration tests with the s3 client down here
 }
 ```
 
