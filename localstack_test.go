@@ -27,7 +27,7 @@ func Test_S3(t *testing.T) {
 	}
 
 	if err := instance.Wait(20 * time.Second); err != nil {
-		instance.Close()
+		_ = instance.Close()
 		t.Fatal(err)
 	}
 
@@ -51,35 +51,35 @@ func Test_S3(t *testing.T) {
 
 	// RUN
 	if _, err := s3client.CreateBucketRequest(&bucketInput).Send(ctx); err != nil {
-		instance.Close()
+		_ = instance.Close()
 		t.Fatalf("unexpected error creating bucket: %s", err)
 	}
 
 	if _, err := s3client.PutObjectRequest(&putInput).Send(ctx); err != nil {
-		instance.Close()
+		_ = instance.Close()
 		t.Fatalf("unexpected error creating object: %s", err)
 	}
 
 	object, err := s3client.GetObjectRequest(&getInput).Send(ctx)
 	if err != nil {
-		instance.Close()
+		_ = instance.Close()
 		t.Fatalf("unexpected error retrieving object: %s", err)
 	}
 
 	data, err := ioutil.ReadAll(object.Body)
 	if err != nil {
-		instance.Close()
+		_ = instance.Close()
 		t.Fatalf("unexpected error reading file: %s", err)
 	}
 
 	// ASSERT
 	if string(data) != content {
-		instance.Close()
+		_ = instance.Close()
 		t.Fatalf("content fetched from localstack s3 should have matched the test content")
 	}
 
 	// CLEANUP
-	instance.Close()
+	_ = instance.Close()
 }
 
 func Test_Dynamo(t *testing.T) {
@@ -93,7 +93,7 @@ func Test_Dynamo(t *testing.T) {
 	}
 
 	if err := instance.Wait(20 * time.Second); err != nil {
-		instance.Close()
+		_ = instance.Close()
 		t.Fatal(err)
 	}
 
@@ -118,14 +118,14 @@ func Test_Dynamo(t *testing.T) {
 
 	// RUN
 	if _, err := dynamoClient.CreateTableRequest(&createTableInput).Send(ctx); err != nil {
-		instance.Close()
+		_ = instance.Close()
 		t.Fatalf("unexpected error creating dynamo table: %s", err)
 	}
 
 	// ASSERT
 
 	// CLEANUP
-	instance.Close()
+	_ = instance.Close()
 }
 
 func Test_SQS(t *testing.T) {
@@ -139,7 +139,7 @@ func Test_SQS(t *testing.T) {
 	}
 
 	if err := instance.Wait(20 * time.Second); err != nil {
-		instance.Close()
+		_ = instance.Close()
 		t.Fatal(err)
 	}
 
@@ -151,12 +151,12 @@ func Test_SQS(t *testing.T) {
 
 	// RUN
 	if _, err := sqsClient.CreateQueueRequest(&createQueueInput).Send(ctx); err != nil {
-		instance.Close()
+		_ = instance.Close()
 		t.Fatalf("unexpected error creating sqs queue: %s", err)
 	}
 
 	// ASSERT
 
 	// CLEANUP
-	instance.Close()
+	_ = instance.Close()
 }

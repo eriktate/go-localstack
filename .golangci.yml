@@ -1,0 +1,27 @@
+
+run:
+  deadline: 1m
+
+issues:
+  exclude-use-default: false
+  exclude:
+    - .((os\.)?std(out|err)\..*|.*Close|.*Flush|os\.Remove(All)?|.*printf?|os\.(Un)?Setenv).
+
+linters:
+  disable-all: true
+  enable:
+    - deadcode
+    - errcheck
+    - gosimple
+    - golint
+    - gofmt
+    - govet
+    - ineffassign
+    - staticcheck
+    - structcheck
+    - unused
+    - varcheck
+    - goconst
+    - typecheck
+    - gocyclo
+    - gosec

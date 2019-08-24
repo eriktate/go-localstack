@@ -174,9 +174,9 @@ func (i *Instance) Config() aws.Config {
 func makeCsv(strings []string) string {
 	buffer := bytes.NewBufferString("")
 	for idx, str := range strings {
-		buffer.WriteString(str)
+		_, _ = buffer.WriteString(str)
 		if idx != len(strings) {
-			buffer.WriteString(",")
+			_, _ = buffer.WriteString(",")
 		}
 	}
 
