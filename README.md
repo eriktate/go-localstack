@@ -1,4 +1,6 @@
 # go-localstack
+[![](https://godoc.org/github.com/eriktate/go-localstack?status.svg)](http://godoc.org/github.com/eriktate/go-localstack)
+
 Lightweight library for integrating with localstack from go.
 
 ## Requirements
